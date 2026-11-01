@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HVid Player</title>
+    <!-- Link to our custom CSS -->
+    <link rel="stylesheet" href="/css/hvid-player.css">
+</head>
+<body style="background: #f4f4f9; font-family: sans-serif; padding: 20px;">
+
+    <h2 style="text-align: center; color: #333;">HVid Custom Player</h2>
+
+    <!-- Hvid Player Structure -->
+    <div class="hvid-container" id="hvid-container">
+        
+        <!-- Watermark -->
+        <div class="hvid-watermark">Hvid personal player</div>
+        
+        <!-- 2x Speed Indicator -->
+        <div class="speed-indicator" id="speed-indicator">2x Speed</div>
+
+        <!-- Video Tag (এটিতে controls যুক্ত করা হয়েছে এবং প্রথম ভিডিও অটো লোড হবে) -->
+        <video id="hvid-video" class="hvid-video fit" controls controlsList="nodownload">
+            <% if (typeof videos !== 'undefined' && videos.length > 0) { %>
+                <source src="<%= videos[0].embedUrl %>" type="video/mp4">
+            <% } else { %>
+                <source src="" type="video/mp4">
+            <% } %>
+        </video>
+
+        <!-- Screen Fitting Controls -->
+        <div class="hvid-controls-wrapper">
+            <button class="hvid-btn" onclick="changeFit('fit')">Fit</button>
+            <button class="hvid-btn" onclick="changeFit('adaptive')">Adaptive</button>
+            <button class="hvid-btn" onclick="changeFit('scratch')">Scratch</button>
+        </div>
+    </div>
+
+    <!-- Video List / Playlist Below -->
+    <div style="max-width: 800px; margin: 30px auto; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <h3>Video List</h3>
+        <ul style="list-style: none; padding: 0;" id="video-list">
+            <% if (typeof videos !== 'undefined' && videos.length > 0) { %>
+                <% videos.forEach(function(video) { %>
+                    <li style="padding: 15px; border-bottom: 1px solid #eee; cursor: pointer; color: #4f46e5; font-weight: bold;" 
+                        onclick="document.getElementById('hvid-video').src='<%= video.embedUrl %>'; document.getElementById('hvid-video').play();">
+                        ▶ <%= video.title %>
+                    </li>
+                <% }); %>
+            <% } else { %>
+                <p>No videos available.</p>
+            <% } %>
+        </ul>
+    </div>
+
+    <!-- Link to our custom JS -->
+    <script src="/js/hvid-player.js"></script>
+</body>
+</html>
