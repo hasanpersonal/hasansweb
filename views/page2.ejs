@@ -1,0 +1,30 @@
+<style>
+    .drive-container { max-width: 800px; margin: 0 auto; padding: 20px; font-family: sans-serif; }
+    .main-title { text-align: center; color: #333; margin-bottom: 30px; }
+    .drive-card { background: #faf0e6; border: 1px solid #ddd; padding: 20px; border-radius: 12px; margin-bottom: 25px; transition: transform 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+    .drive-card:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.1); }
+    .drive-card a { text-decoration: none; color: #333; display: block; }
+    .drive-title { font-size: 1.3rem; margin-bottom: 10px; color: #0ea5e9; }
+    .drive-desc { color: #555; font-size: 0.95rem; }
+    .empty-msg { text-align: center; color: #666; padding: 40px 0; }
+</style>
+
+<div class="drive-container">
+    <h1 class="main-title">My Drive Links</h1>
+
+    <% if (typeof videos !== 'undefined' && videos.length > 0) { %>
+        <% videos.forEach(function(video) { %>
+            <div class="drive-card">
+                <a href="<%= video.embedUrl %>" target="_blank">
+                    <h2 class="drive-title">📁 <%= video.title %></h2>
+                    <p class="drive-desc"><%= video.description %></p>
+                </a>
+            </div>
+        <% }); %>
+    <% } else { %>
+        <div class="empty-msg">
+            <h2>No Drive links found!</h2>
+            <p>Go to <a href="/admin">/admin</a> page to upload your first Drive link.</p>
+        </div>
+    <% } %>
+</div>
