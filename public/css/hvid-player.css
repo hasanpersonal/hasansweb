@@ -1,0 +1,85 @@
+/* public/css/hvid-player.css */
+.hvid-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background: #000;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.hvid-video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: object-fit 0.3s ease;
+}
+
+/* Screen Size Options */
+.fit { object-fit: contain; } /* Fit */
+.scratch { object-fit: fill; } /* Scratch/Stretch */
+.adaptive { object-fit: cover; } /* Adaptive */
+
+/* Watermark */
+.hvid-watermark {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: bold;
+    pointer-events: none;
+    z-index: 10;
+    transition: opacity 0.3s;
+    opacity: 0; /* Hidden by default */
+}
+
+/* Controls (Visible on hover or active) */
+.hvid-controls-wrapper {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 10;
+}
+
+.hvid-container:hover .hvid-watermark,
+.hvid-container:hover .hvid-controls-wrapper,
+.hvid-container.active .hvid-watermark,
+.hvid-container.active .hvid-controls-wrapper {
+    opacity: 1;
+}
+
+.hvid-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.hvid-btn:hover {
+    background: #4f46e5;
+}
+
+/* 2x Speed Indicator */
+.speed-indicator {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: none;
+    z-index: 10;
+}
