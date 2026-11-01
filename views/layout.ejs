@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasan's WEB</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { 
+            margin: 0; 
+            padding: 0; 
+            background-color: #d3d3d3;
+            font-family: 'Inter', sans-serif; 
+            color: #1e293b;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        * { box-sizing: border-box; }
+
+        .top-header { text-align: center; padding: 30px 0 20px 0; background-color: #d3d3d3; }
+
+        .brand-container { 
+            display: inline-block; padding: 10px 30px; border: 1px solid #e2e8f0; 
+            border-radius: 50px; background-color: #ffffff; text-decoration: none; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04); transition: all 0.3s ease; 
+        }
+
+        .brand-container:hover { transform: translateY(-2px); border-color: #0ea5e9; box-shadow: 0 10px 25px rgba(14, 165, 233, 0.15); }
+        
+        .brand-text { font-size: 1.6rem; font-weight: 800; color: #0f172a; letter-spacing: -0.5px; transition: color 0.3s; }
+        .brand-container:hover .brand-text { color: #0ea5e9; }
+
+        .navbar { 
+            background-color: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px); width: 100%; padding: 12px 0; 
+            text-align: center; position: sticky; top: 0; z-index: 1000;
+            border-bottom: 1px solid #e2e8f0; white-space: nowrap; overflow-x: auto; 
+            -ms-overflow-style: none; scrollbar-width: none; 
+        }
+
+        .navbar::-webkit-scrollbar { display: none; }
+        .navbar a { 
+            color: #475569; text-decoration: none; padding: 8px 20px; 
+            font-size: 0.95rem; font-weight: 600; display: inline-block; 
+            margin: 0 4px; border-radius: 20px; transition: all 0.25s ease; 
+        }
+        .navbar a:hover { background-color: #f0f9ff; color: #0ea5e9; }
+
+        .content { max-width: 1200px; margin: 0 auto; padding: 40px 20px; min-height: 60vh; }
+
+        .custom-footer { background-color: #0f172a; color: #f8fafc; padding: 45px 20px; text-align: center; border-top: 1px solid #1e293b; }
+        .footer-content { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        
+        .footer-link {
+            color: #38bdf8; text-decoration: none; font-weight: 600; font-size: 0.95rem;
+            transition: all 0.2s; background: rgba(56, 189, 248, 0.08);
+            padding: 6px 18px; border-radius: 20px; border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+        .footer-link:hover { background: rgba(56, 189, 248, 0.15); color: #7dd3fc; transform: translateY(-1px); }
+        .footer-text { font-size: 0.95rem; color: #94a3b8; font-weight: 400; }
+
+        @media (max-width: 600px) {
+            .content { padding: 25px 15px; }
+            .brand-text { font-size: 1.4rem; }
+            .navbar a { padding: 8px 14px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-header">
+        <a href="/" class="brand-container">
+            <span class="brand-text">Hasan's WEB</span>
+        </a>
+    </div>
+
+    <nav class="navbar">
+        <a href="/"><i class="fa-solid fa-house" style="font-size: 0.85rem; margin-right: 5px;"></i> Home</a>
+        <a href="/game.html">Games by me</a>
+        <a href="/page1.html">YT Vid</a>
+        <a href="/page2.html">Drive Vid</a>
+        <a href="/pagecontact.html">Contact & Support</a>
+    </nav>
+
+    <!-- Node.js/EJS Content Body: এখানেই আপনার অন্য পেজগুলোর কোড ইনজেক্ট হবে -->
+    <div class="content">
+        <%- body %>
+    </div>
+
+    <footer class="custom-footer">
+        <div class="footer-content">
+            <a href="/" class="footer-link"><i class="fa-solid fa-arrow-left"></i> Go back to Home</a>
+            <span class="footer-text">This website was coded by <strong>Imrul Hasan</strong> 😇</span>
+            <span class="footer-text" style="font-size: 0.85rem; opacity: 0.6;">Project 2026 ✓✓</span>
+        </div>
+    </footer>
+
+</body>
+</html>
