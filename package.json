@@ -1,0 +1,15 @@
+{
+  "name": "hasans-web",
+  "version": "1.0.0",
+  "description": "Node.js EJS Website with Firebase",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "firebase": "^10.8.0"
+  }
+}
