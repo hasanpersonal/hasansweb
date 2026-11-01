@@ -1,0 +1,232 @@
+<!-- Google Fonts & Font Awesome -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+    /* বক্স সাইজিং রিসেট */
+    .minimal-hero, .minimal-hero * {
+        box-sizing: border-box;
+    }
+
+    :root {
+        --bg-color: #2adb91; 
+        --card-bg: #ffffff;
+        --text-main: #0f172a; 
+        --text-muted: #64748b;
+    }
+
+    /* হিরো সেকশন */
+    .minimal-hero {
+        font-family: 'Inter', sans-serif;
+        min-height: 80vh;
+        width: 100%; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 20px;
+        text-align: center;
+        background-color: var(--bg-color);
+        background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+        background-size: 24px 24px; 
+        color: var(--text-main);
+        border-radius: 20px;
+    }
+
+    /* লোডিং অ্যানিমেশন */
+    @keyframes fadeInUp {
+        0% { opacity: 0; transform: translateY(30px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* মেইন কার্ড ডিজাইন */
+    .clean-container {
+        background: var(--card-bg);
+        padding: 50px 40px;
+        border-radius: 24px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08), 0 0 15px rgba(0, 0, 0, 0.02);
+        width: 100%;
+        max-width: 450px; 
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+        animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @media (max-width: 480px) {
+        .minimal-hero {
+            padding: 20px 10px;
+        }
+        .clean-container {
+            padding: 40px 20px; 
+        }
+        .clean-container h1 {
+            font-size: 2.8rem; 
+        }
+    }
+
+    .clean-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .clean-container h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin: 0 0 8px 0;
+        color: var(--text-main);
+        letter-spacing: -1.5px;
+    }
+
+    .clean-container p {
+        font-size: 1.1rem;
+        color: var(--text-muted);
+        margin-bottom: 35px;
+        font-weight: 400;
+    }
+
+    /* বাটন স্ট্যাক */
+    .button-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    /* বেসিক বাটন স্টাইল */
+    .clean-btn {
+        padding: 16px 20px;
+        font-size: 1.05rem;
+        font-weight: 600;
+        border-radius: 16px;
+        cursor: pointer;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .clean-btn i {
+        font-size: 1.2rem;
+        transition: transform 0.3s ease;
+    }
+
+    .clean-btn:hover i {
+        transform: scale(1.15);
+    }
+
+    /* আউটলাইন বাটন */
+    .btn-outline {
+        background-color: #ffffff;
+        color: #334155;
+        border: 2px solid #e2e8f0;
+    }
+
+    .btn-outline i {
+        color: var(--btn-color);
+    }
+
+    .btn-outline:hover {
+        border-color: var(--btn-color);
+        color: var(--btn-color);
+        background-color: var(--btn-bg-hover);
+        box-shadow: 0 10px 20px -5px rgba(0,0,0,0.05);
+        transform: translateY(-2px);
+    }
+
+    /* ফিল্ড বাটন */
+    .btn-filled {
+        background-color: var(--btn-color);
+        color: #ffffff;
+        border: none;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .btn-filled:hover {
+        filter: brightness(1.08);
+        transform: translateY(-3px);
+        box-shadow: 0 15px 25px -5px var(--btn-color-shadow);
+    }
+
+    /* ডাইনামিক বাটন কালারস */
+    .btn-rocket { --btn-color: #f97316; --btn-bg-hover: #fff7ed; }
+    .btn-file { --btn-color: #3b82f6; --btn-bg-hover: #eff6ff; }
+    .btn-game { --btn-color: #8b5cf6; --btn-color-shadow: rgba(139, 92, 246, 0.4); }
+    .btn-tube { --btn-color: #f43f5e; --btn-color-shadow: rgba(244, 63, 94, 0.4); }
+    .btn-support { --btn-color: #0d9488; --btn-bg-hover: #f0fdfa; }
+
+    /* ফুটার */
+    .minimal-footer {
+        margin-top: 50px;
+        text-align: center;
+        animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        animation-delay: 0.2s;
+        opacity: 0;
+    }
+
+    .footer-highlight {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #334155;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .footer-text {
+        font-size: 0.9rem;
+        color: #64748b;
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    .footer-badge {
+        display: inline-block;
+        background: #e2e8f0;
+        color: #475569;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+</style>
+
+<div class="minimal-hero">
+    <div class="clean-container">
+        <h1>Welcome</h1>
+        <p>This is my first online website</p>
+
+        <div class="button-stack">
+            <!-- Dynamic Tube Site Link (External Link) -->
+            <a href="https://hasanpersonal.github.io/Dinamic-" class="clean-btn btn-filled btn-tube" target="_blank">
+                <i class="fa-regular fa-file-lines"></i> Dinamic Tube Site By me
+            </a>
+            <!-- Page 1 Link -->
+            <a href="/page1" class="clean-btn btn-outline btn-rocket">
+                <i class="fa-solid fa-rocket"></i> Go to Page 1
+            </a>
+            <!-- Page 2 Link -->
+            <a href="/page2" class="clean-btn btn-outline btn-file">
+                <i class="fa-regular fa-file-lines"></i> Explore Page 2
+            </a>
+            <!-- Game Page Link -->
+            <a href="/game" class="clean-btn btn-filled btn-game">
+                <i class="fa-solid fa-gamepad"></i> Games by me
+            </a>
+            <!-- Support Link -->
+            <a href="/pagecontact" class="clean-btn btn-filled btn-support">
+                <i class="fa-solid fa-headset"></i> Contact & Support
+            </a>
+            <a href="/admin" class="clean-btn btn-outline btn-file">admin control 
+           </a>
+        </div>
+    </div>
+    <div class="minimal-footer">
+        <span class="footer-highlight">Coded by Imrul Hasan 😇</span>
+        <span class="footer-text">Hosted on Render 🚀</span>
+        <span class="footer-badge">WEB PROJECT 2026 ✓✓</span>
+    </div>
+</div>
